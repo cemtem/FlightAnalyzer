@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  spark-master:
+    image: spark-master:latest
+    ports:
+      - "4040:4040"
+      - "7077:7077"
+      - "18080:8080"
+    volumes:
+      - ./spark-apps:/opt/spark-apps
+      - ./spark-data-pre:/src/main/resources/data
+      - ./spark-data:/opt/spark-data
+    environment:
+      - "SPARK_LOCAL_IP=spark-master"
+  spark-worker:
+    image: spark-worker:latest
+    depends_on:
+      - spark-master
+    environment:
+      - SPARK_WORKER_CORES=1
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_DRIVER_MEMORY=128m
+      - SPARK_EXECUTOR_MEMORY=256m
+      - SPARK_MASTER=spark://spark-master:7077
+    volumes:
+      - ./spark-apps:/opt/spark-apps
+      - ./spark-data:/opt/spark-data
+      - ./spark-data-pre:/src/main/resources/data

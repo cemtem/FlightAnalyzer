@@ -1,0 +1,63 @@
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# SBT
+target/
+project/target/
+project/project/
+.cache/
+lib_managed/
+src_managed/
+.sbt/
+*.lock
+*.class
+.history
+.cache-main
+out/
+
+# Logs
+logs/
+*.log
+*.tmp
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+
+# Scala and Java specific
+*.jar
+*.war
+*.ear
+
+# Package Files
+*.tgz
+*.tar.gz
+*.zip
+*.7z
+*.gz
+*.rar
+
+# IDE Configs
+.vscode/
+*.swp
+
+# Temporary Files
+*~
+# Scala REPL
+repl*.dat
+
+# Coverage
+.coverage/
+coverage.*
+.coverage-reports/
+
+# Testing
+test-reports/
+.akka.persistence/
+
+# Other Build Artifacts
+dist/
+build/
